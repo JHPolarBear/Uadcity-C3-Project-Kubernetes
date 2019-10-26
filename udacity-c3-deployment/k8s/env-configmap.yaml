@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 data:
-  AWS_MEDIA_BUCKET: udagram_park_dev-course3
+  AWS_MEDIA_BUCKET: udagram-park-dev-course3
   AWS_PROFILE: default
   AWS_REGION: ap-northeast-2
   JWT_SECRET: helloworld
