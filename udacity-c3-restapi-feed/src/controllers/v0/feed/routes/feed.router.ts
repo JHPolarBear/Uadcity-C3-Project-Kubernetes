@@ -15,6 +15,9 @@ export function requireAuth(req: Request, res: Response, next: NextFunction) {
      
  
      const token_bearer = req.headers.authorization.split(' ');
+    
+     console.log("token value: ", token_bearer);
+
      if(token_bearer.length != 2){
          return res.status(401).send({ message: 'Malformed token.' });
      }
@@ -60,6 +63,7 @@ router.patch('/:id',
 router.get('/signed-url/:fileName', 
     requireAuth, 
     async (req: Request, res: Response) => {
+
     let { fileName } = req.params;
     const url = AWS.getPutSignedUrl(fileName);
     res.status(201).send({url: url});
