@@ -37,7 +37,7 @@ spec:
           valueFrom:
             configMapKeyRef:
               name: env-config
-              key: POSTGRESS_DATABASE
+              key: POSTGRESS_DB
         - name: POSTGRESS_HOST
           valueFrom:
             configMapKeyRef:

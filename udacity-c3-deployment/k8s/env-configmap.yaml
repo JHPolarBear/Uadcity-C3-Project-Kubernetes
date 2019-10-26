@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: ConfigMap
 data:
-  AWS_MEDIA_BUCKET: udagram_park_dev
+  AWS_MEDIA_BUCKET: udagram_park_dev-course3
   AWS_PROFILE: default
   AWS_REGION: ap-northeast-2
-  JWT_SECRET: dfadgagedfgafdasg
+  JWT_SECRET: helloworld
   POSTGRESS_DB: udagramparkdev
   POSTGRESS_HOST: udagramparkdev.crz9m8n4ojxa.ap-northeast-2.rds.amazonaws.com
   URL: http://localhost:8100  

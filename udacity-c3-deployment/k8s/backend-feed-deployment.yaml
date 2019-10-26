@@ -28,7 +28,7 @@ spec:
             configMapKeyRef:
               name: env-config
               key: URL
-        - name: AWS_MDIABUCKET
+        - name: AWS_MEDIA_BUCKET
           valueFrom:
             configMapKeyRef:
               name: env-config
