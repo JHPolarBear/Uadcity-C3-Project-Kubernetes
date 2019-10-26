@@ -65,4 +65,9 @@ kubectl port-forward pod/frontend-778479dfd5-p8zf5 8100:8100
 
 ```
 
+###Result
+
+- Application page
+![Alt text](Screenshots/app_page.PNG?raw=true "Application page")
+
 
