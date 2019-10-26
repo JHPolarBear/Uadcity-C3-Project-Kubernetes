@@ -39,3 +39,6 @@ node_modules
 #OS STUFF
 .DS_Store
 .tmp
+udacity-c3-restapi-feed/package-lock.json
+udacity-c3-frontend/package-lock.json
+udacity-c3-restapi-user/package-lock.json
