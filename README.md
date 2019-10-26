@@ -41,3 +41,28 @@ kubectl apply -f frontend-service.yaml
 kubectl apply -f reverseproxy-service.yaml 	
 
 ```
+
+###Result
+
+- Status
+![Alt text](Screenshots/kubectl_status.PNG?raw=true "kubernetes status")
+
+- Pods detail
+![Alt text](Screenshots/kubectl_pods.PNG?raw=true "kubernetes pods")
+
+
+## Local Test
+
+Use port-forward method.
+
+```
+
+# reverseproxy port-foward
+kubectl port-forward pod/reverseproxy-85d464d759-tzmgw 8080:8080
+
+# frontend port-foward
+kubectl port-forward pod/frontend-778479dfd5-p8zf5 8100:8100
+
+```
+
+
