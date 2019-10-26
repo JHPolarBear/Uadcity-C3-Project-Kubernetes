@@ -1,58 +1,43 @@
 # Udagram Course-3 Project
 
+
 ## Project platform
-This project is built and tested based on Amazon EKS
 
-The project is split into three parts:
-1. [The Simple Frontend](https://github.com/grutt/udacity-c2-frontend) `This Repo`
-A basic Ionic client web application which consumes the RestAPI Backend. 
-2. [The RestAPI Backend](https://github.com/grutt/udacity-c2-restapi)
-Which is a Node-Express server which can be deployed to a cloud service.
-3. [The Image Filtering Microservice](https://github.com/grutt/udacity-c2-image-filter)
-Which is the final project for the course. It is a Node-Express application which runs a simple Python script to process images.
+This project is built and tested with Amazon EKS and CLI
 
-***
 
-## Getting Setup
+## Docker Container List
 
-> _tip_: this frontend is designed to work with [The RestAPI Backend](https://github.com/grutt/udacity-c2-restapi). It is recommended you stand up the backend first, test using Postman, and then the frontend should integrate.
+Restapi-feed : https://cloud.docker.com/u/jhpark8904/repository/docker/jhpark8904/udacity-restapi-feed
 
-### Installing Node and NPM
-This project depends on Nodejs and Node Package Manager (NPM). Before continuing, you must download and install Node (NPM is included) from [https://nodejs.com/en/download](https://nodejs.org/en/download/).
+Restapi-users: https://cloud.docker.com/u/jhpark8904/repository/docker/jhpark8904/udacity-restapi-user
 
-### Installing Ionic Cli
-The Ionic Command Line Interface is required to serve and build the frontend. Instructions for installing the CLI can be found in the [Ionic Framework Docs](https://ionicframework.com/docs/installation/cli).
+frontend: https://cloud.docker.com/u/jhpark8904/repository/docker/jhpark8904/udacity-frontend
 
-### Installing project dependencies
+Reverseproxy: https://cloud.docker.com/u/jhpark8904/repository/docker/jhpark8904/reverseproxy
 
-This project uses NPM to manage software dependencies. NPM Relies on the package.json file located in the root of this repository. After cloning, open your terminal and run:
-```bash
-npm install
-```
->_tip_: **npm i** is shorthand for **npm install**
 
-### Configure The Backend Endpoint
-Ionic uses enviornment files located in `./src/enviornments/enviornment.*.ts` to load configuration variables at runtime. By default `environment.ts` is used for development and `enviornment.prod.ts` is used for produciton. The `apiHost` variable should be set to your server url either locally or in the cloud.
+## Installation
 
-***
-### Running the Development Server
-Ionic CLI provides an easy to use development server to run and autoreload the frontend. This allows you to make quick changes and see them in real time in your browser. To run the development server, open terminal and run:
-
-```bash
-ionic serve
 ```
 
-### Building the Static Frontend Files
-Ionic CLI can build the frontend into static HTML/CSS/JavaScript files. These files can be uploaded to a host to be consumed by users on the web. Build artifacts are located in `./www`. To build from source, open terminal and run:
-```bash
-ionic build
-```
-***
+# environment settings
+kubectl apply -f env-configmap.yaml
+kubectl apply -f env-secret.yaml
+kubectl apply -f aws-secret.yaml
 
-## @TODO
-2. Tasks
-    i. Setup
-        a. Clone, set up protected branches (dev, staging, master)
-        b. NPM, Ionic CLI
-        c. run tests (npm test), identify broken function, fix the function
-        d. write tests for form validation and re-run tests
+# restapi settings
+kubectl apply -f backend-user-deployment.yaml
+kubectl apply -f backend-feed-deployment.yaml
+
+kubectl apply -f backend-user-service.yaml
+kubectl apply -f backend-feed-service.yaml
+
+# frontend and reverseproxy
+kubectl apply -f frontend-deployment.yaml
+kubectl apply -f reverseproxy-deployment.yaml
+
+kubectl apply -f frontend-service.yaml
+kubectl apply -f reverseproxy-service.yaml 	
+
+```
