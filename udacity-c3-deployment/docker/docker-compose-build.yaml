@@ -1,0 +1,18 @@
+version: "3"
+services:
+  reverseproxy:
+    build:
+      context: .
+    image: jhpark8904/reverseproxy 
+  backend_user:
+    build:
+      context: ../../udacity-c3-restapi-user
+    image: jhpark8904/udacity-restapi-user
+  backend_feed:
+    build:
+      context: ../../udacity-c3-restapi-feed  
+    image: jhpark8904/udacity-restapi-feed
+  frontend:
+    build:
+      context: ../../udacity-c3-frontend  
+    image: jhpark8904/udacity-frontend:local
